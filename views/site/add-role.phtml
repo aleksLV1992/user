@@ -1,0 +1,33 @@
+<div class="form-input">
+    <div class="bd-example">
+        <form action="add-role" method="post" name="add-role">
+            <h3>Добавления новой Роли</h3>
+            <div class="group-form">
+                <label>Имя</label>
+                <input id="role_name" name="role_name" class="form-control" value="<?= $model->role_name; ?>"/>
+            </div>
+            <div class="group-form">
+                <?php if (isset($error) && count($error) > 0): ?>
+                    <div class="alert alert-danger">
+                        <?php foreach ($error as $value): ?>
+                            <span><?= $value; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($success) && count($success) > 0): ?>
+                    <div class="alert alert-success">
+                        <?php foreach ($success as $value): ?>
+                            <span><?= $value; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="group-form block-right">
+                <div class="group-btn">
+                    <a class="btn btn-outline-secondary" href="/">Главная</a>
+                    <button type="submit" class="btn btn-primary">Добавить роль</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="form-input">
+    <div class="bd-example">
+        <form action="add-user" method="post" name="add-user">
+            <h3>Добавления Пользователя</h3>
+            <div class="group-form">
+                <label>Имя</label>
+                <input id="user_name" name="user_name" class="form-control" value="<?= $model->user_name; ?>"/>
+            </div>
+            <div class="group-form">
+                <label>Роль</label>
+                <?php if (isset($role) && count($role) > 0): ?>
+                    <select class="form-control" id="role_id" name="role_id">
+                        <?php foreach ($role as $value): ?>
+                            <option <?php if ($value['id'] == $model->role_id) echo 'selected'; ?>
+                                    value="<?= $value['id'] ?>"><?= $value['role_name']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php else: ?>
+                    <div class="alert alert-warning">
+                        В таблицу Ролей нет записей
+                        <a class="btn btn-primary" href="/site/add-role">Добавить роль</a>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="group-form">
+                <?php if (isset($error) && count($error) > 0): ?>
+                    <div class="alert alert-danger">
+                        <?php foreach ($error as $value): ?>
+                            <span><?= $value; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($success) && count($success) > 0): ?>
+                    <div class="alert alert-success">
+                        <?php foreach ($success as $value): ?>
+                            <span><?= $value; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="group-form block-right">
+                <div class="group-btn">
+                    <a class="btn btn-outline-secondary" href="/">Главная</a>
+                    <button type="submit" class="btn btn-primary">Добавить пользователя</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

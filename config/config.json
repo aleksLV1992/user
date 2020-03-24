@@ -1,0 +1,9 @@
+{
+  "main": "site/index",
+  "connectDB": {
+    "mysql":"mysql:host=localhost;dbname=user",
+    "username":"root",
+    "password":"123"
+  }
+
+}
